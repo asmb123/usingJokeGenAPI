@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>icanhazdadjoke</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="flex">
+        <div class="ss">
+            Dad Joke Generator
+        </div>
+        <div class="gg">
+            
+        </div>
+        <button class="bb">GENERATE JOKE!!</button>
+    </div>
+
+    <script>
+        let a; // Declare a variable to store the fetched joke
+
+        // Fetch the joke from the API
+        fetch("https://icanhazdadjoke.com/", {
+            headers: {
+                Accept: "application/json", // Specify that we want JSON response
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(json => {
+            a = json.joke; // Store the joke in the variable 'a'
+        })
+        .catch(error => {
+            console.error('Error fetching joke:', error);
+        });
+
+        // Add an event listener to the element with class ".bb"
+        document.querySelector(".bb").addEventListener("click", () => {
+            // Check if joke is fetched, if not, return
+            if (!a) {
+                console.error('Joke not fetched yet!');
+                return;
+            }
+            // Update the content of the element with class ".gg" with the fetched joke
+            document.querySelector(".gg").innerHTML = a;
+        });
+    </script>
+</body>
+</html>
