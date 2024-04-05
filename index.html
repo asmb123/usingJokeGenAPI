@@ -3,10 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DadJokesGenerator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>icanhazdadjoke</title>
+    
+    <style>
+        body{
+    overflow: hidden;
+    margin: 0;
+}
+.main{
+    
+    width: 100vw;
+    height: 100vh;
+    
+    color: rgb(0, 0, 0);
+    background-image: url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg);
+   
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.gg{
+    width: 60vw;
+    height: 10vh;
+    border: 1px solid black;
+    background-color: aquamarine;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bb{
+    width: 30vw;
+    height: 10vh;
+    border-radius: 15px;
+}
+.ss{
+    font-style: oblique;
+    font-size: xx-large;
+}
+    </style>
 </head>
 <body>
+   <div class="main">
     <div class="flex">
         <div class="ss">
             Dad Joke Generator
@@ -16,9 +61,12 @@
         </div>
         <button class="bb">GENERATE JOKE!!</button>
     </div>
+   </div>
+    
 
     <script>
-        let a; // Declare a variable to store the fetched joke
+       
+            let a; // Declare a variable to store the fetched joke
 
         // Fetch the joke from the API
         fetch("https://icanhazdadjoke.com/", {
@@ -49,6 +97,7 @@
             // Update the content of the element with class ".gg" with the fetched joke
             document.querySelector(".gg").innerHTML = a;
         });
+        
     </script>
 </body>
 </html>
